@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply box-border;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply text-gray-800 bg-gray-50;
+}
+
+/* Utility classes for status badges */
+.badge-idle {
+  @apply bg-status-idle text-white;
+}
+
+.badge-printing {
+  @apply bg-status-printing text-white;
+}
+
+.badge-error {
+  @apply bg-status-error text-white;
+}
+
+.badge-queued {
+  @apply bg-status-queued text-white;
+}
+
+/* Dashboard card styles */
+.dashboard-card {
+  @apply bg-white rounded-lg shadow-lg p-6 border-l-4;
+}
+
+.dashboard-card.idle {
+  @apply border-l-status-idle;
+}
+
+.dashboard-card.printing {
+  @apply border-l-status-printing;
+}
+
+.dashboard-card.error {
+  @apply border-l-status-error;
+}
+
+.dashboard-card.queued {
+  @apply border-l-status-queued;
+}

@@ -1,0 +1,32 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Public read access to printers collection
+    match /printers/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null && isAdmin();
+    }
+
+    // Jobs collection - students can create/read, admins can write
+    match /jobs/{document=**} {
+      allow create, read: if true;
+      allow update, delete: if request.auth != null && isAdmin();
+    }
+
+    // Admin configuration
+    match /config/admin {
+      allow read: if true;
+      allow write: if request.auth != null && isAdmin();
+    }
+
+    // Materials configuration
+    match /config/materials {
+      allow read: if true;
+      allow write: if request.auth != null && isAdmin();
+    }
+  }
+
+  function isAdmin() {
+    return request.auth.token.admin == true;
+  }
+}
