@@ -144,7 +144,7 @@ export default function StudentStatus() {
                       </div>
                       <div>
                         <p className="text-sm text-gray-600">USB Cubby</p>
-                        <p className="font-semibold text-gray-800">#{job.cubbySNumber}</p>
+                        <p className="font-semibold text-gray-800">#{job.cubbyNumber ?? job.cubbySNumber ?? 'N/A'}</p>
                       </div>
                     </div>
 

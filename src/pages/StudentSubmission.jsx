@@ -95,7 +95,8 @@ export default function StudentSubmission() {
         printerId: selectedPrinter,
         material: selectedMaterial,
         color: selectedColor,
-        cubbySNumber: parseInt(cubbyNumber),
+        cubbyNumber: parseInt(cubbyNumber),
+        cubbySNumber: parseInt(cubbyNumber), // Legacy compatibility for existing UI/data
         estimatedTime: estimatedTime ? parseInt(estimatedTime) : null,
       })
 

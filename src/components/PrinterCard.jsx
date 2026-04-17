@@ -53,7 +53,7 @@ export default function PrinterCard({ printer, queue = [] }) {
               {currentJob.studentName}
             </p>
             <p className="text-dashboard-label text-gray-600 mt-2">
-              📁 Cubby #{currentJob.cubbySNumber}
+              📁 Cubby #{currentJob.cubbyNumber ?? currentJob.cubbySNumber ?? 'N/A'}
             </p>
             <p className="text-dashboard-label text-gray-600 mt-1">
               {currentJob.material} • {currentJob.color}

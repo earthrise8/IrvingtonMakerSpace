@@ -97,7 +97,7 @@ export default function QueueController({ printer, queue }) {
             <div className="space-y-2 mb-6">
               <p className="text-xl font-bold text-gray-800">{currentJob.studentName}</p>
               <p className="text-gray-600">Material: {currentJob.material} • Color: {currentJob.color}</p>
-              <p className="text-gray-600">Cubby: #{currentJob.cubbySNumber}</p>
+              <p className="text-gray-600">Cubby: #{currentJob.cubbyNumber ?? currentJob.cubbySNumber ?? 'N/A'}</p>
               {currentJob.estimatedTime && (
                 <p className="text-gray-600">Est. Time: {currentJob.estimatedTime} min</p>
               )}
@@ -216,7 +216,7 @@ export default function QueueController({ printer, queue }) {
                   <div>
                     <p className="font-semibold text-gray-800">#{idx + 2} {job.studentName}</p>
                     <p className="text-sm text-gray-600 mt-1">
-                      {job.material} • {job.color} • Cubby #{job.cubbySNumber}
+                      {job.material} • {job.color} • Cubby #{job.cubbyNumber ?? job.cubbySNumber ?? 'N/A'}
                     </p>
                   </div>
                   <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded">
