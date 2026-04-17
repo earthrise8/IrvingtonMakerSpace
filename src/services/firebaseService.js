@@ -11,13 +11,18 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 }
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig)
+const isFirebaseConfigured = Object.values(firebaseConfig).every(value => typeof value === 'string' && value.length > 0)
 
-// Initialize Firestore
-export const db = getFirestore(app)
+if (!isFirebaseConfigured) {
+  console.warn('Firebase config is missing. App shell will render, but data features are disabled until VITE_FIREBASE_* variables are set.')
+}
 
-// Initialize Auth
-export const auth = getAuth(app)
+const app = isFirebaseConfigured ? initializeApp(firebaseConfig) : null
+
+export const db = app ? getFirestore(app) : null
+
+export const auth = app ? getAuth(app) : null
+
+export const firebaseReady = isFirebaseConfigured
 
 export default app
